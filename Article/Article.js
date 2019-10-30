@@ -37,9 +37,9 @@ const data = [
         mewing kittens Remus Lupin. Palominos scarlet train black robes, Metamorphimagus Niffler dead easy second bedroom. Padma
         and Parvati Sorting Hat Minister of Magic blue turban remember my last.`,
 
-    thirdParagraph: `Toad-like smile Flourish and Blotts he knew I’d come back Quidditch World Cup. Fat Lady baubles banana fritters fairy lights 
-        Petrificus Totalus. So thirsty, deluminator firs’ years follow me 12 inches of parchment. Head Boy start-of-term banquet Cleansweep Seven 
-        roaring lion hat. Unicorn blood crossbow mars is bright tonight, feast Norwegian Ridgeback. Come seek us where our voices sound, we cannot 
+    thirdParagraph: `Toad-like smile Flourish and Blotts he knew I’d come back Quidditch World Cup. Fat Lady baubles banana fritters fairy lights
+        Petrificus Totalus. So thirsty, deluminator firs’ years follow me 12 inches of parchment. Head Boy start-of-term banquet Cleansweep Seven
+        roaring lion hat. Unicorn blood crossbow mars is bright tonight, feast Norwegian Ridgeback. Come seek us where our voices sound, we cannot
         sing above the ground, Ginny Weasley bright red. Fanged frisbees, phoenix tears good clean match.`
   },
   {
@@ -66,8 +66,8 @@ const data = [
         consectetur adipiscing elit. Nidoran Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nidorino Lorem ipsum dolor
         sit amet, consectetur adipiscing elit. Nidoking Lorem ipsum`,
 
-    thirdParagraph: `Gotta catch 'em all Horsea gym Ninjask Absol Sinnoh Poliwag. Gotta catch 'em all Youngster wants to fight Soda Pop Floatzel 
-        Leech Life Seismitoad Ariados. Earthquake Pokemon Glitch City Tail Whip Skitty Ekans Dialga. Ut aliquip ex ea commodo consequat James 
+    thirdParagraph: `Gotta catch 'em all Horsea gym Ninjask Absol Sinnoh Poliwag. Gotta catch 'em all Youngster wants to fight Soda Pop Floatzel
+        Leech Life Seismitoad Ariados. Earthquake Pokemon Glitch City Tail Whip Skitty Ekans Dialga. Ut aliquip ex ea commodo consequat James
         Castform Lotad the power that's inside Burnt Berry Makuhita. Ghost Ariados Corphish Dusclops Golbat Gligar Zweilous.`
   },
   {
@@ -86,29 +86,99 @@ const data = [
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
+  //  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
+  ,
+  {
+    title: 'Step 5: Add a new article to the array',
+    date: 'Oct 30st, 2019',
+    firstParagraph: `Imagination is the key to painting. Put your feelings into it, your heart, it's your world. I can't think of anything more rewarding than being able to express yourself to others through painting. And just raise cain. See there, told you that would be easy.`,
+
+    secondParagraph: `In nature, dead trees are just as normal as live trees. This is your world. A beautiful little sunset. Maybe there was an old trapper that lived out here and maybe one day he went to check his beaver traps, and maybe he fell into the river and drowned.`,
+
+    thirdParagraph: `That's what painting is all about. It should make you feel good when you paint. Work on one thing at a time. Don't get carried away - we have plenty of time. You have freedom here. The only guide is your heart. Volunteering your time; it pays you and your whole community fantastic dividends.`
+  },
+  {
+    title: 'ReadME says add a few Directions say one?',
+    date: 'Oct 30st, 2019',
+    firstParagraph: `Here's something that's fun. Just let these leaves jump off the brush The very fact that you're aware of suffering is enough reason to be overjoyed that you're alive and can experience it. And I know you're saying, 'Oh Bob, you've done it this time.' And you may be right. Just relax and let it flow. That easy.`,
+
+    secondParagraph: `Life is too short to be alone, too precious. Share it with a friend. Tree trunks grow however makes them happy. We'll do another happy little painting. If there's two big trees invariably sooner or later there's gonna be a little tree.`,
+
+    thirdParagraph: `There's nothing wrong with having a tree as a friend. We'll throw some happy little limbs on this tree. Van Dyke Brown is a very nice brown, it's almost like a chocolate brown. Those great big fluffy clouds. We don't have to be concerned about it. We just have to let it fall where it will.`
+  }
+
+
 ];
 
-/* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
-  
-  <div class="article">
-    <h2>{title of the article}</h2>
-    <p class="date">{date of the article}</p>
+// Step 1: Create a function that creates a component. You will want your component to look like the template below:
 
-    {three separate paragraph elements}
+function step1(arrIndexObject) {
+//  <div class="article">
+  let divArticlebox = document.createElement('div');
+  divArticlebox.classList.add('article');
+//    <h2>{title of the article}</h2>
+  let h2Var = document.createElement('h2');
+  h2Var.textContent = arrIndexObject.title;
+  divArticlebox.appendChild(h2Var);
+//    <p class="date">{date of the article}</p>
+  let pDateVar = document.createElement('p');
+  pDateVar.classList.add('date');
+  pDateVar.textContent = arrIndexObject.date;
+  divArticlebox.appendChild(pDateVar);
+//    {three separate paragraph elements}
+  let p1Var = document.createElement('p');
+  p1Var.textContent = arrIndexObject.firstParagraph;
+  divArticlebox.appendChild(p1Var);
 
-    <span class='expandButton'></span>
-  </div>
+  let p2Var = document.createElement('p');
+  p2Var.textContent = arrIndexObject.secondParagraph;
+  divArticlebox.appendChild(p2Var);
 
-  Hint: You will need to use createElement more than once here!
+  let p3Var = document.createElement('p');
+  p3Var.textContent = arrIndexObject.thirdParagraph;
+  divArticlebox.appendChild(p3Var);
 
-  Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
+//    <span class='expandButton'></span>
+  let spanVar = document.createElement('span');
+  spanVar.textContent = "I NEED TO SEE THE BUTTON"; // this is the unicode she refranced \u25BC found at https://graphemica.com/%E2%96%BC
+  spanVar.classList.add('expandButton');
 
-  Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+//  Step 2: Add an event listener to the expandButton span.
+// This event listener should toggle the class 'article-open' on the 'article' div.
+  spanVar.addEventListener('click', (event) => {
+    event.target.style.backgroundColor = 'black';
+    spanVar.textContent = "Close Article"; // \u25b2 from the same site
+    divArticlebox.classList.toggle("article-open");
+  })// deed to make this CB the toggle reqested abnove
 
-  Step 3: return the entire component.
+  divArticlebox.appendChild(spanVar);
+//  </div>
 
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+//  Hint: You will need to use createElement more than once here!
 
-  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
+//  Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
 
+/* DOM OUTSIDE COMPONET?
+  const forcetoHold = document.querySelector('.articles');
+  forcetoHold.appendChild(divArticlebox);
 */
+
+  //Step 3: return the entire component.
+  return divArticlebox;
+
+};
+step1(data[1]);//to call a test index
+
+
+/*
+    Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+
+    Step 3: return the entire component.
+*/
+//  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+  const mapOver = data.map( index => step1(index)  );
+  // ????? why do we need to map over rather than just loop out strait to dom?
+  const forcetoHold = document.querySelector('.articles');
+  mapOver.forEach(function(index) {
+    forcetoHold.appendChild(index);
+  });
